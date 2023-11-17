@@ -1,12 +1,14 @@
+/* Nerdy secret: You can use "less" below! Don't tell anybody... */
+
 .github-profile {
   margin: 1rem;
-  img {
+  > img {
     width: 75px;
   }
-  .info {
+  > .info {
     display: inline-block;
-    margin-left: 10;
-    .name {
+    margin-left: 12px;
+    > .name {
       font-size: 1.25rem;
       font-weight: bold;
     }

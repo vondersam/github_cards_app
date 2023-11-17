@@ -22,22 +22,29 @@ class Card extends React.Component {
   render() {
     return (
       <div className="github-profile">
-        <img src="https://placehold.it/75" />
+        <img src={this.props.avatar_url} />
         <div className="info">
-          <div className="name">Name here...</div>
-          <div className="company">Company here...</div>
+          <div className="name">{this.props.name}</div>
+          <div className="company">{this.props.company}</div>
         </div>
       </div>
     );
   }
 }
 
+const CardList = (props) => {
+  const results = testData.map((cardData, index) => (
+    <Card key={index} {...cardData} />
+  ));
+  return results;
+};
+
 class App extends React.Component {
   render() {
     return (
       <div>
         <div className="header">The Github Card App</div>
-        <Card />
+        <CardList />
       </div>
     );
   }
