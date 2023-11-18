@@ -32,11 +32,22 @@ class Card extends React.Component {
   }
 }
 
+class Form extends React.Component {
+  render() {
+    return (
+      <form action="">
+        <input type="text" placeholder="GitHub username" />
+        <button>Add</button>
+      </form>
+    );
+  }
+}
+
 const CardList = (props) => {
-  const results = testData.map((cardData, index) => (
+  const results = props.profiles.map((cardData, index) => (
     <Card key={index} {...cardData} />
   ));
-  return results;
+  return <div>{results}</div>;
 };
 
 class App extends React.Component {
@@ -44,7 +55,8 @@ class App extends React.Component {
     return (
       <div>
         <div className="header">The Github Card App</div>
-        <CardList />
+        <Form />
+        <CardList profiles={testData} />
       </div>
     );
   }
