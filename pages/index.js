@@ -33,10 +33,21 @@ class Card extends React.Component {
 }
 
 class Form extends React.Component {
+  state = { userName: '' };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.userName);
+  };
   render() {
     return (
-      <form action="">
-        <input type="text" placeholder="GitHub username" />
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          placeholder="GitHub username"
+          required
+          value={this.state.userName}
+          onChange={(event) => this.setState({ userName: event.target.value })}
+        />
         <button>Add</button>
       </form>
     );
@@ -51,12 +62,15 @@ const CardList = (props) => {
 };
 
 class App extends React.Component {
+  state = {
+    profiles: testData
+  };
   render() {
     return (
       <div>
         <div className="header">The Github Card App</div>
         <Form />
-        <CardList profiles={testData} />
+        <CardList profiles={this.state.profiles} />
       </div>
     );
   }
